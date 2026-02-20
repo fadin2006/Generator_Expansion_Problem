@@ -188,4 +188,11 @@ Typical outputs:
     ├── dispatch_timeseries.csv
     ├── cost_breakdown.csv
     └── kpis.json
+## Citation
+Please cite each dataset source individually using the provided BibTeX entries in the `references.bib` file.
 
+
+
+---
+
+For questions or collaborations, feel free to open an issue or contact the maintainer :fahrudin.muna@mail.ugm.ac.id
