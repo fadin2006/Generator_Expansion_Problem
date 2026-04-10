@@ -7,9 +7,7 @@ The core workflow is:
 1. **Raw data** (`raw/`): three original CSV source files — load, wind SCADA, and solar irradiation.
 2. **Cleaned data** (`Cleaned_Data_Wind_Solar_Load_With_Timestamp.xls`): timestamps synchronized, units standardized, and key features extracted into a single aligned table.
 3. **Capacity-adjusted data** (`Data_Wind_Solar_Load_Capacity_Adjusted_MW.xls`): renewable outputs converted to MW using generator-rated capacities (Wind 200 MW, Solar 150 MW / 110 MW) and load scaled accordingly.
-4. **Splitting**: seasonal × day/night regime subsets for copula-based scenario sampling.
-5. **Gaussian Copula scenario sampling**: generate realistic multi-variable scenarios preserving dependence.
-6. **Optimization**: solve the GEP (e.g., MILP) and store build/dispatch/cost outcomes.
+
 
 ---
 
@@ -144,78 +142,10 @@ Steps performed:
 **Input**: `Cleaned_Data_Wind_Solar_Load_With_Timestamp.xls`  
 **Output**: `Data_Wind_Solar_Load_Capacity_Adjusted_MW.xls`
 
-### C) Splitting Process (Seasonal + Day/Night Regimes)
-
-**Goal**: split the capacity-adjusted dataset into seasonal and day/night subsets for regime-aware copula sampling.
-
-**Season split** (calendar-based):
-- Spring: Mar–May | Summer: Jun–Aug | Fall: Sep–Nov | Winter: Dec–Feb
-
-**Day/Night split** (solar-driven):
-- Day: `H_sun > 0` or `G_POA > 0`
-- Night: `H_sun ≤ 0` or `G_POA = 0`
-
-**Outputs** (8 subset files):
-- `Solar_Wind_Load_1_Year_{season}_{day|night}.csv`
-
-### D) Gaussian Copula Scenario Sampling
-
-**Goal**: generate multi-scenario synthetic samples preserving marginal distributions and cross-variable dependence (load ↔ wind ↔ solar).
-
-**Outputs**:
-- `scenarios/gaussian_copula/scenario_NNNN.csv`
-- `scenarios/gaussian_copula/summary.json`
-
-### E) Optimization: Generator Expansion Planning (GEP)
-
-**Goal**: choose new generation capacities that minimize total expected cost under uncertainty.
-
-**Inputs**: scenario time series, technology parameters (capex/opex, fuel, emissions), reliability constraints.
-
-**Outputs**:
-- `results/expansion_plan.csv`
-- `results/dispatch_timeseries.csv`
-- `results/cost_breakdown.csv`
-- `results/kpis.json`
-
----
-
-## Repository Layout
-
-```text
-.
-├── raw/
-│   ├── PJME_MW_1_year.csv
-│   ├── Wind_Speed_1_year.csv
-│   └── Solar_Irradiation_1_year.csv
-├── processed/
-│   ├── Cleaned_Data_Wind_Solar_Load_With_Timestamp.xls
-│   ├── Data_Wind_Solar_Load_Capacity_Adjusted_MW.xls
-│   ├── Solar_Wind_Load_1_Year_spring_day.csv
-│   ├── Solar_Wind_Load_1_Year_spring_night.csv
-│   ├── Solar_Wind_Load_1_Year_summer_day.csv
-│   ├── Solar_Wind_Load_1_Year_summer_night.csv
-│   ├── Solar_Wind_Load_1_Year_fall_day.csv
-│   ├── Solar_Wind_Load_1_Year_fall_night.csv
-│   ├── Solar_Wind_Load_1_Year_winter_day.csv
-│   └── Solar_Wind_Load_1_Year_winter_night.csv
-├── scenarios/
-│   └── gaussian_copula/
-│       ├── scenario_0001.csv
-│       ├── scenario_0002.csv
-│       └── summary.json
-└── results/
-    ├── expansion_plan.csv
-    ├── dispatch_timeseries.csv
-    ├── cost_breakdown.csv
-    └── kpis.json
-```
-
----
 
 ## Citation
 Please cite each dataset source individually using the provided BibTeX entries in the `references.bib` file.
 
----
+
 
 For questions or collaborations, feel free to open an issue or contact the maintainer: fahrudin.muna@mail.ugm.ac.id
