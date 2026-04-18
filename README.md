@@ -112,15 +112,13 @@ Typical steps:
   - Use `H_sun` when available because it is physically interpretable and robust for PVGIS-derived series.  
 
 Typical outputs:  
-- `processing/Solar_Wind_Load_1_Year_spring_day.csv`  
-- `processing/Solar_Wind_Load_1_Year_spring_night.csv`  
-- `processing/Solar_Wind_Load_1_Year_summer_day.csv`  
-- `processing/Solar_Wind_Load_1_Year_summer_night.csv`  
-- `processing/Solar_Wind_Load_1_Year_fall_day.csv`  
-- `processing/Solar_Wind_Load_1_Year_fall_night.csv`  
-- `processing/Solar_Wind_Load_1_Year_winter_day.csv`  
-- `processing/Solar_Wind_Load_1_Year_winter_night.csv`  
-- `processing/Solar_Wind_Load_1_Year_WindScaled.csv` *(wind-scaled variant for sampling/training stability)*  
+- `processing/Solar_Wind_Load_Scaled_Combined.csv             ← Full year (8,760 hours), all variables`  
+- `processing/solar_Wind_Load_{season}_{daynight}_1_year.csv  ← 8 seasonal group files`  
+- `processing/Seasonal_Energy_Profile_by_Group.csv            ← Efficiency & CF summary per group`  
+- `processing/Seasonal_Temperature_Statistics.csv             ← Temperature stats per group`  
+- `processing/renewable_energy_design_statistics.csv          ← Wind & solar design statistics`  
+- `processing/README.md`  
+
 
 **Common split formats**  
 - **Subset files**: each file contains only the rows that match its regime (season × day/night).  
@@ -169,14 +167,12 @@ Typical outputs:
 │   ├── Wind_Speed_1_year.csv
 │   └── Solar_Irradiation_1_year.csv
 ├── processed/
-│   ├── Solar_Wind_Load_1_Year_spring_day.csv`
-│   ├── Solar_Wind_Load_1_Year_spring_night.csv`
-│   ├── Solar_Wind_Load_1_Year_summer_day.csv`
-│   |── Solar_Wind_Load_1_Year_summer_night.csv`
-|   |── Solar_Wind_Load_1_Year_fall_day.csv`
-|   |── Solar_Wind_Load_1_Year_fall_night.csv`
-|   |── Solar_Wind_Load_1_Year_winter_day.csv`
-|   └── Solar_Wind_Load_1_Year_winter_night.csv`
+│   ├── Solar_Wind_Load_Scaled_Combined.csv`
+│   ├── solar_Wind_Load_{season}_{daynight}_1_year.csv`
+│   ├── Seasonal_Energy_Profile_by_Group.csv`
+|   |── Seasonal_Temperature_Statistics.csv`
+|   |── renewable_energy_design_statistics.csv`
+|   └── README.md`
 |   
 ├── scenarios/
 │   └── gaussian_copula/
