@@ -165,6 +165,8 @@ Typical outputs:
 ├── raw/
 │   ├── PJME_MW_1_year.csv
 │   ├── Wind_Speed_1_year.csv
+│   ├── Wind_Speed_1_year.csv
+│   ├── Wind_Speed_1_year.csv
 │   └── Solar_Irradiation_1_year.csv
 ├── processed/
 │   ├── Solar_Wind_Load_Scaled_Combined.csv`
