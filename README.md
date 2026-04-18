@@ -90,9 +90,12 @@ Typical steps:
   - `solar_cf(t)` from POA irradiance using a PV conversion model (simplified linear, PVWatts-style, or detailed).
 
 **Recommended processed outputs**
-- `processed/load_hourly.csv` (timestamp, load_MW)
-- `processed/wind_hourly.csv` (timestamp, wind_speed, wind_power_MW, wind_cf)
-- `processed/solar_hourly.csv` (timestamp, poa_Wm2, temp_C, solar_cf)
+- `Raw Data/PJME_MW_1_year.csv`                                ← (timestamp, load_MW)
+- `Raw Data/Solar_Irradiation_1_year.csv`                      ← (timestamp, poa_Wm2, temp_C, solar_cf)
+- `Raw Data/Wind_Speed_1_year.csv`                             ← (timestamp, wind_speed, wind_power_MW, wind_cf)
+- `Raw Data/Cleaned_Data_Wind_Solar_Load_With_Timestamp.xls`   ← Merged, timestamp-aligned, cleaned hourly data
+- `Raw Data/Data_Wind_Solar_Load_Capacity_Adjusted_MW.xls`     ← Generator-capacity-adjusted outputs in MW
+- `Raw Data/README.md`
 
 ### B) Splitting Process (Seasonal + Day/Night Regimes)  
 **Goal**: split the processed, timestamp-aligned dataset into **seasonal** and **day/night** subsets to enable:  
@@ -112,12 +115,12 @@ Typical steps:
   - Use `H_sun` when available because it is physically interpretable and robust for PVGIS-derived series.  
 
 Typical outputs:  
-- `processing/Solar_Wind_Load_Scaled_Combined.csv             ← Full year (8,760 hours), all variables`  
-- `processing/solar_Wind_Load_{season}_{daynight}_1_year.csv  ← 8 seasonal group files`  
-- `processing/Seasonal_Energy_Profile_by_Group.csv            ← Efficiency & CF summary per group`  
-- `processing/Seasonal_Temperature_Statistics.csv             ← Temperature stats per group`  
-- `processing/renewable_energy_design_statistics.csv          ← Wind & solar design statistics`  
-- `processing/README.md`  
+- `processed Data/Solar_Wind_Load_Scaled_Combined.csv             ← Full year (8,760 hours), all variables`  
+- `processed Data/solar_Wind_Load_{season}_{daynight}_1_year.csv  ← 8 seasonal group files`  
+- `processed Data/Seasonal_Energy_Profile_by_Group.csv            ← Efficiency & CF summary per group`  
+- `processed Data/Seasonal_Temperature_Statistics.csv             ← Temperature stats per group`  
+- `processed Data/renewable_energy_design_statistics.csv          ← Wind & solar design statistics`  
+- `processed Data/README.md`  
 
 
 **Common split formats**  
@@ -132,10 +135,9 @@ Typical outputs:
 - cross-dependence (e.g., weather-driven correlation patterns)
 
 Typical outputs:
-- `scenarios/gaussian_copula/scenario_0001.csv`
-- `scenarios/gaussian_copula/scenario_0002.csv`
-- …
-- `scenarios/gaussian_copula/summary.json` (marginals, correlation matrix, seed, scenario count)
+- `Gaussian Copula/scenario_0001.csv`
+- `Gaussian Copula/scenario_0002.csv`
+- `Gaussian Copula/summary.json` (marginals, correlation matrix, seed, scenario count)
 
 **Common scenario formats**
 - **Hourly scenarios**: each file contains 8760 rows.
@@ -164,10 +166,10 @@ Typical outputs:
 .
 ├── raw/
 │   ├── PJME_MW_1_year.csv
+│   ├── Solar_Irradiation_1_year.csv
 │   ├── Wind_Speed_1_year.csv
-│   ├── Wind_Speed_1_year.csv
-│   ├── Wind_Speed_1_year.csv
-│   └── Solar_Irradiation_1_year.csv
+│   ├── Cleaned_Data_Wind_Solar_Load_With_Timestamp.xls
+│   └── Data_Wind_Solar_Load_Capacity_Adjusted_MW.xls
 ├── processed/
 │   ├── Solar_Wind_Load_Scaled_Combined.csv`
 │   ├── solar_Wind_Load_{season}_{daynight}_1_year.csv`
@@ -175,12 +177,10 @@ Typical outputs:
 |   |── Seasonal_Temperature_Statistics.csv`
 |   |── renewable_energy_design_statistics.csv`
 |   └── README.md`
-|   
-├── scenarios/
-│   └── gaussian_copula/
-│       ├── scenario_0001.csv
-│       ├── scenario_0002.csv
-│       └── summary.json
+│── Gaussian Copula/
+│    ├── scenario_0001.csv
+│    ├── scenario_0002.csv
+│    └── summary.json
 └── Optimization/
     ├── expansion_plan.csv
     ├── dispatch_timeseries.csv
