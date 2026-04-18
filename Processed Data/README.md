@@ -31,7 +31,6 @@ print(df.head())
 ├── Seasonal_Energy_Profile_by_Group.csv     ← Efficiency & CF summary per group
 ├── Seasonal_Temperature_Statistics.csv      ← Temperature stats per group
 ├── renewable_energy_design_statistics.csv   ← Wind & solar design statistics
-├── DataPreparation_Part1.ipynb              ← Notebook that produced these files
 └── README.md
 ```
 
