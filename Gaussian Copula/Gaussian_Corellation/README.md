@@ -2,9 +2,7 @@
 
 This folder contains the **Gaussian-space correlation matrices** `Σ` used by the Gaussian copula sampler to generate correlated random draws of **solar irradiance**, **wind power availability**, and **system electric demand** for each season / time-of-day group.
 
-The methodology follows:
 
-> **H. Park and R. Baldick (2020)**, *Optimal capacity planning of generation system integrating uncertain solar and wind energy with seasonal variability*, Electric Power Systems Research 180, 106072. https://doi.org/10.1016/j.epsr.2019.106072
 
 ## 1. Background
 
