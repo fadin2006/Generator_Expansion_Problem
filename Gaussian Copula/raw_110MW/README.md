@@ -2,9 +2,7 @@
  
 This folder stores the **i.i.d. copula-generated samples** of three correlated random variables — **solar irradiance / PV availability**, **wind power availability**, and **system-wide electric demand** — used as realizations at each stage of the multi-stage stochastic scenario tree.
  
-The methodology follows:
- 
-> **H. Park and R. Baldick (2020)**, *Optimal capacity planning of generation system integrating uncertain solar and wind energy with seasonal variability*, Electric Power Systems Research 180, 106072. https://doi.org/10.1016/j.epsr.2019.106072
+
  
 The `110MW` label refers to the **candidate solar-PV farm name-plate capacity** used in this variant of the generator-expansion test system (the paper's baseline is 150 MW per PV candidate; this 110 MW variant is a sensitivity study. See `../raw_150MW/` for the baseline).
  
