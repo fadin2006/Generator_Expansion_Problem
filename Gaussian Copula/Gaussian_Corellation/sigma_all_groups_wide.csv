@@ -1,0 +1,17 @@
+pipeline,group,rho_SW,rho_SD,rho_WD
+150MW,winter_day,-0.0226,0.1611,-0.038
+150MW,winter_night,-0.0,0.0,-0.0031
+150MW,spring_day,-0.0298,0.1899,0.0279
+150MW,spring_night,0.0,0.0,0.0391
+150MW,summer_day,-0.0032,0.0578,0.0437
+150MW,summer_night,-0.0,-0.0,0.052
+150MW,fall_day,-0.0097,0.1715,0.0505
+150MW,fall_night,-0.0,0.0,0.0673
+110MW,winter_day,-0.0226,0.1611,-0.038
+110MW,winter_night,-0.0,0.0,-0.0031
+110MW,spring_day,-0.0294,0.189,0.0279
+110MW,spring_night,0.0,0.0,0.0391
+110MW,summer_day,-0.0033,0.0577,0.0437
+110MW,summer_night,-0.0,-0.0,0.052
+110MW,fall_day,-0.0097,0.1715,0.0505
+110MW,fall_night,-0.0,0.0,0.0673
