@@ -95,14 +95,13 @@ This file converts the cleaned data into generator-level MW outputs using rated 
 
 | Column | Type | Description | Unit | Stats |
 |---|---|---|---|---|
+| `load_scaled` | float | System load scaled to match generation portfolio | MW | mean 24,521.6, min 15,404, max 44,174.4 |
+| `solar_G_i__POA` |  float | Total POA irradiance | W/m² | mean 217, min 0, max 1 152 |
 | `solar_T2m` | float | Ambient temperature | °C | mean 12.5, min −13.9, max 33.8 |
-| `wind_scaled_MW` | float | Wind generation scaled to 200 MW rated capacity | MW | mean 66.7, min 0, max 183.0 |
-| `load_scaled` | float | System load scaled to match generation portfolio | MW | mean 23 183, min 14 563, max 41 763 |
-| `G_POA_Wm2` | float | Total POA irradiance | W/m² | mean 217, min 0, max 1 152 |
-| `Ta_C` | float | Ambient temperature (same as solar_T2m) | °C | — |
+| `wind_Energy_scaled_MW` | float | Wind generation scaled to 200 MW rated capacity | MW | mean 66.7, min 0, max 183.0 |
 | `eta_eff` | float | PV conversion efficiency (temperature-dependent) | — | mean 0.183, min 0.131, max 0.214 |
-| `P_150MW_adj_MW` | float | Solar output for a 150 MW plant | MW | mean 47.6, min 0, max 139.4 |
-| `P_110MW_adj_MW` | float | Solar output for a 110 MW plant | MW | mean 34.9, min 0, max 102.2 |
+| `P_150MW_adj_MW` | float | Solar output for a 150 MW plant | MW | mean 52.5, min 0, max 145.7 |
+| `P_110MW_adj_MW` | float | Solar output for a 110 MW plant | MW | mean 38.5, min 0, max 106.8 |
 
 ---
 
