@@ -13,7 +13,7 @@ Renewable energy scenario data for stochastic generation expansion planning.
 import pandas as pd
 
 # Load a seasonal group
-df = pd.read_csv("solar_Wind_Load_summer_day_1_year.csv", parse_dates=["DateTime"], index_col="DateTime")
+df = pd.read_csv("Data_Wind_Solar_Load_Capacity_Adjusted_MW.csv", parse_dates=["DateTime"], index_col="DateTime")
 
 # See what's inside
 print(df.columns.tolist())
