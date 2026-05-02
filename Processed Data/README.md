@@ -26,7 +26,6 @@ print(df.head())
 ## Repository Structure
 
 ```
-├── Solar_Wind_Load_Scaled_Combined.csv      ← Full year (8,760 hours), all variables
 ├── solar_Wind_Load_{season}_{daynight}_1_year.csv  ← 8 seasonal group files
 ├── Seasonal_Energy_Profile_by_Group.csv     ← Efficiency & CF summary per group
 ├── Seasonal_Temperature_Statistics.csv      ← Temperature stats per group
@@ -60,7 +59,7 @@ The **master dataset** — all 8,760 hours in one file before seasonal splitting
 
 ---
 
-### 2. Seasonal Group Files (8 files)
+### 1. Seasonal Group Files (8 files)
 
 The master dataset split into **8 groups** by season × day/night:
 
@@ -81,7 +80,7 @@ The master dataset split into **8 groups** by season × day/night:
 
 ---
 
-### 3. `Seasonal_Energy_Profile_by_Group.csv`
+### 2. `Seasonal_Energy_Profile_by_Group.csv`
 
 One row per group with efficiency and capacity factor summaries:
 
@@ -102,7 +101,7 @@ One row per group with efficiency and capacity factor summaries:
 
 ---
 
-### 4. `Seasonal_Temperature_Statistics.csv`
+### 3. `Seasonal_Temperature_Statistics.csv`
 
 Temperature summary per group:
 
@@ -115,7 +114,7 @@ Temperature summary per group:
 
 ---
 
-### 5. `renewable_energy_design_statistics.csv`
+### 4. `renewable_energy_design_statistics.csv`
 
 Design-level statistics for the three renewable output columns:
 
