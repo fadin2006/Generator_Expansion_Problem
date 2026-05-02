@@ -26,6 +26,7 @@ print(df.head())
 ## Repository Structure
 
 ```
+├── solar_Wind_Load_{season}_1_year.csv  ← 4 seasonal group files
 ├── solar_Wind_Load_{season}_{daynight}_1_year.csv  ← 8 seasonal group files
 ├── Seasonal_Energy_Profile_by_Group.csv     ← Efficiency & CF summary per group
 ├── Seasonal_Temperature_Statistics.csv      ← Temperature stats per group
@@ -37,29 +38,20 @@ print(df.head())
 
 ## File Descriptions
 
-### 1. `Solar_Wind_Load_Scaled_Combined.csv`
+### 1. Seasonal Group Files (4 files)
 
-The **master dataset** — all 8,760 hours in one file before seasonal splitting.
+The master dataset split into **4 groups** by season:
 
-| Column | Unit | Description |
-|--------|------|-------------|
-| `DateTime` | — | Hourly timestamp (index) |
-| `solar_G_i__POA` | W/m² | Plane-of-array solar irradiance from PVGIS |
-| `solar_T2m` | °C | Ambient temperature at 2m height |
-| `wind_Energy_scaled_MW` | MW | Wind farm output, scaled so max = 179 MW |
-| `load_PJME_MW` | MW | Electrical load (PJM East × 0.08 scale) |
-| `P_150MW_adj_MW` | MW | Adjusted solar output — 150 MW candidate plant |
-| `P_110MW_adj_MW` | MW | Adjusted solar output — 110 MW existing plant |
-| `eta_eff` | — | Hourly solar PV effective efficiency (0–1) |
-| `eta_eff_pct` | % | Same as above, in percent |
-| `CF_150MW` | — | Hourly capacity factor for 150 MW plant |
-| `CF_110MW` | — | Hourly capacity factor for 110 MW plant |
-| `season` | — | 0=Winter, 1=Fall, 2=Summer, 3=Spring |
-| `day_night` | — | 0=Day (05:00–17:59), 1=Night |
+| File | Season | Time | Typical rows |
+|------|--------|------|-------------|
+| `solar_Wind_Load_winter_1_year.csv` | Dec–Feb | 00:00–23:59 | ~1,170 |
+| `solar_Wind_Load_spring_1_year.csv` | Mar–May | 00:00–23:59 | ~1,196 |
+| `solar_Wind_Load_summer_1_year.csv` | Jun–Aug | 00:00–23:59 | ~1,196 |
+| `solar_Wind_Load_fall_1_year.csv` | Sep–Nov | 00:00–23:59 | ~1,183 |
 
 ---
 
-### 1. Seasonal Group Files (8 files)
+### 2. 'Seasonal and Time Based Group Files (8 files)'
 
 The master dataset split into **8 groups** by season × day/night:
 
@@ -80,7 +72,7 @@ The master dataset split into **8 groups** by season × day/night:
 
 ---
 
-### 2. `Seasonal_Energy_Profile_by_Group.csv`
+### 3. `Seasonal_Energy_Profile_by_Group.csv`
 
 One row per group with efficiency and capacity factor summaries:
 
@@ -101,7 +93,7 @@ One row per group with efficiency and capacity factor summaries:
 
 ---
 
-### 3. `Seasonal_Temperature_Statistics.csv`
+### 4. `Seasonal_Temperature_Statistics.csv`
 
 Temperature summary per group:
 
@@ -114,7 +106,7 @@ Temperature summary per group:
 
 ---
 
-### 4. `renewable_energy_design_statistics.csv`
+### 5. `renewable_energy_design_statistics.csv`
 
 Design-level statistics for the three renewable output columns:
 
