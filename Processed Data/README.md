@@ -99,24 +99,28 @@ The master dataset split into **8 groups** by season × day/night:
 
 ### 3. `Seasonal_Energy_Profile_by_Group.csv`
 
-One row per group with efficiency and capacity factor summaries:
+This file provides one row per seasonal or season-time group, summarizing temperature, solar irradiance, solar PV efficiency, adjusted solar generation, wind generation, and load demand.
 
 | Column | Description |
 |--------|-------------|
-| `Ta_avg_C` | Average ambient temperature (°C) |
-| `G_avg_Wm2` | Average POA irradiance (W/m²) |
-| `solar_eta_pct` | Solar PV effective efficiency (%) |
-| `P_adj_avg_150MW` | Average adjusted solar output, 150 MW plant (MW) |
-| `P_adj_max_150MW` | Maximum adjusted solar output, 150 MW plant (MW) |
-| `CF_adj_150MW` | Capacity factor for 150 MW plant |
-| `P_adj_avg_110MW` | Average adjusted solar output, 110 MW plant (MW) |
-| `CF_adj_110MW` | Capacity factor for 110 MW plant |
-| `wind_mean_MW` | Average wind output (MW) |
-| `wind_max_MW` | Maximum wind output (MW) |
-| `wind_CF` | Wind capacity factor |
-| `load_mean_MW` | Average demand (MW) |
+| `Ta_avg_C` | Average ambient temperature in degrees Celsius (°C) for the group |
+| `G_avg_Wm2` | Average plane-of-array solar irradiance in watts per square meter (W/m²) |
+| `G_max_Wm2` | Maximum plane-of-array solar irradiance in watts per square meter (W/m²) |
+| `solar_eta_pct` | Average effective solar PV efficiency in percent (%) |
+| `P_adj_avg_150MW` | Average adjusted solar power output for the 150 MW solar plant case (MW) |
+| `P_adj_max_150MW` | Maximum adjusted solar power output for the 150 MW solar plant case (MW) |
+| `CF_adj_150MW` | Capacity factor of the adjusted 150 MW solar plant output |
+| `P_adj_avg_110MW` | Average adjusted solar power output for the 110 MW solar plant case (MW) |
+| `P_adj_max_110MW` | Maximum adjusted solar power output for the 110 MW solar plant case (MW) |
+| `CF_adj_110MW` | Capacity factor of the adjusted 110 MW solar plant output |
+| `wind_mean_MW` | Average scaled wind power output in MW |
+| `wind_max_MW` | Maximum scaled wind power output in MW |
+| `wind_CF` | Wind capacity factor based on the scaled wind output |
+| `load_mean_MW` | Average electrical load demand in MW |
+| `load_max_MW` | Maximum electrical load demand in MW |
 
 ---
+The solar capacity factors are calculated from the adjusted solar output relative to the corresponding plant size. The wind capacity factor is calculated from the scaled wind output relative to the wind design capacity. The load columns summarize demand behavior within each seasonal or season-time group.
 
 ### 4. `Seasonal_Temperature_Statistics.csv`
 
