@@ -72,15 +72,15 @@ Each row represents **one hourly observation**, so the number of rows is equal t
 
 The total seasonal row count is:
 
-```text
+text
 2,160 + 2,184 + 2,208 + 2,208 = 8,760 hours
----
+
 
 ### 2. 'Seasonal and Time Based Group Files (8 files)'
 
 The master dataset split into **8 groups** by season × day/night:
 | Index | File | Season | Number of Data | Datetime Min | Datetime Max |
-|---:|---|---:|---|---|
+|-------|------|--------|----------------|--------------|-------------:|
 | 0 | `Data_Wind_Solar_Load_Capacity_Adjusted_MW_winter_day` | Dec–Feb | 845 | 2018-01-01 06:00:00 | 2018-12-31 14:00:00 |
 | 1 | `Data_Wind_Solar_Load_Capacity_Adjusted_MW_winter_night` | Dec–Feb | 1,315 | 2018-01-01 00:00:00 | 2018-12-31 23:00:00 |
 | 2 | `Data_Wind_Solar_Load_Capacity_Adjusted_MW_fall_day` | Mar–May | 989 | 2018-09-01 04:00:00 | 2018-11-30 14:00:00 |
