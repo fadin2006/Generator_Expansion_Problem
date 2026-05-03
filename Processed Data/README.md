@@ -26,11 +26,30 @@ print(df.head())
 ## Repository Structure
 
 ```
-├── solar_Wind_Load_{season}_1_year.csv  ← 4 seasonal group files
-├── solar_Wind_Load_{season}_{daynight}_1_year.csv  ← 8 seasonal group files
-├── Seasonal_Energy_Profile_by_Group.csv     ← Efficiency & CF summary per group
-├── Seasonal_Temperature_Statistics.csv      ← Temperature stats per group
-├── renewable_energy_design_statistics.csv   ← Wind & solar design statistics
+Processed Data/
+├── Season_split/
+│   ├── Data_Wind_Solar_Load_Capacity_Adjusted_MW_winter.csv
+│   ├── Data_Wind_Solar_Load_Capacity_Adjusted_MW_spring.csv
+│   ├── Data_Wind_Solar_Load_Capacity_Adjusted_MW_summer.csv
+│   ├── Data_Wind_Solar_Load_Capacity_Adjusted_MW_fall.csv
+│   ├── season_summary.csv
+│   ├── season_numeric_stats.csv
+│   └── full_data_with_season_labels.csv
+│
+├── Season_Time_split/
+│   ├── Data_Wind_Solar_Load_Capacity_Adjusted_MW_winter_day.csv
+│   ├── Data_Wind_Solar_Load_Capacity_Adjusted_MW_winter_night.csv
+│   ├── Data_Wind_Solar_Load_Capacity_Adjusted_MW_spring_day.csv
+│   ├── Data_Wind_Solar_Load_Capacity_Adjusted_MW_spring_night.csv
+│   ├── Data_Wind_Solar_Load_Capacity_Adjusted_MW_summer_day.csv
+│   ├── Data_Wind_Solar_Load_Capacity_Adjusted_MW_summer_night.csv
+│   ├── Data_Wind_Solar_Load_Capacity_Adjusted_MW_fall_day.csv
+│   ├── Data_Wind_Solar_Load_Capacity_Adjusted_MW_fall_night.csv
+│   └── split_numeric_season_time_stats.csv
+│
+├── Seasonal_Energy_Profile_by_Group.csv
+├── Seasonal_Temperature_Statistics.csv
+├── renewable_energy_design_statistics.csv
 └── README.md
 ```
 
