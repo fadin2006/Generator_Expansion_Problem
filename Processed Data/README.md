@@ -140,12 +140,10 @@ Design-level statistics for the three renewable output columns:
 | `count` | Number of hours (8,760) |
 | `min` | Minimum value (MW) |
 | `min_nonzero` | Smallest positive value (MW) |
-| `max` | Maximum value (MW) |
 | `mean` | Average output (MW) |
-| `std` | Standard deviation (MW) |
 | `median` | Median output (MW) |
-| `sum_MWh` | Total annual energy (MWh) |
-
+| `max` | Maximum value (MW) |
+| `std` | Standard deviation (MW) |
 ---
 
 ## Plant Design Parameters
