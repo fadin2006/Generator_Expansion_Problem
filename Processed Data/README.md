@@ -59,31 +59,37 @@ Processed Data/
 
 ### 1. Seasonal Group Files (4 files)
 
-The master dataset split into **4 groups** by season:
+The master dataset is split into **4 groups** by meteorological season.  
+Each row represents **one hourly observation**, so the number of rows is equal to the number of hours.
 
-| File | Season | Time | Typical rows |
-|------|--------|------|-------------|
-| `solar_Wind_Load_winter_1_year.csv` | Dec–Feb | 00:00–23:59 | ~1,170 |
-| `solar_Wind_Load_spring_1_year.csv` | Mar–May | 00:00–23:59 | ~1,196 |
-| `solar_Wind_Load_summer_1_year.csv` | Jun–Aug | 00:00–23:59 | ~1,196 |
-| `solar_Wind_Load_fall_1_year.csv` | Sep–Nov | 00:00–23:59 | ~1,183 |
+| File | Season | Months | Time coverage | Rows / Hours |
+|------|--------|--------|---------------|-------------:|
+| `Data_Wind_Solar_Load_Capacity_Adjusted_MW_winter.csv` | Winter | Dec–Feb | 00:00–23:00 | 2,160 |
+| `Data_Wind_Solar_Load_Capacity_Adjusted_MW_fall.csv` | Fall | Sep–Nov | 00:00–23:00 | 2,184 |
+| `Data_Wind_Solar_Load_Capacity_Adjusted_MW_summer.csv` | Summer | Jun–Aug | 00:00–23:00 | 2,208 |
+| `Data_Wind_Solar_Load_Capacity_Adjusted_MW_spring.csv` | Spring | Mar–May | 00:00–23:00 | 2,208 |
+| **Total** | Full year | Jan–Dec | Hourly | **8,760** |
 
+The total seasonal row count is:
+
+```text
+2,160 + 2,184 + 2,208 + 2,208 = 8,760 hours
 ---
 
 ### 2. 'Seasonal and Time Based Group Files (8 files)'
 
 The master dataset split into **8 groups** by season × day/night:
+| Index | File | Season | Number of Data | Datetime Min | Datetime Max |
+|---:|---|---:|---|---|
+| 0 | `Data_Wind_Solar_Load_Capacity_Adjusted_MW_winter_day` | Dec–Feb | 845 | 2018-01-01 06:00:00 | 2018-12-31 14:00:00 |
+| 1 | `Data_Wind_Solar_Load_Capacity_Adjusted_MW_winter_night` | Dec–Feb | 1,315 | 2018-01-01 00:00:00 | 2018-12-31 23:00:00 |
+| 2 | `Data_Wind_Solar_Load_Capacity_Adjusted_MW_fall_day` | Mar–May | 989 | 2018-09-01 04:00:00 | 2018-11-30 14:00:00 |
+| 3 | `Data_Wind_Solar_Load_Capacity_Adjusted_MW_fall_night` | Mar–May | 1,195 | 2018-09-01 00:00:00 | 2018-11-30 23:00:00 |
+| 4 | `Data_Wind_Solar_Load_Capacity_Adjusted_MW_summer_day` | Jun–Aug | 1,253 | 2018-06-01 03:00:00 | 2018-08-31 16:00:00 |
+| 5 | `Data_Wind_Solar_Load_Capacity_Adjusted_MW_summer_night` | Jun–Aug | Dec–Feb || 955 | 2018-06-01 00:00:00 | 2018-08-31 23:00:00 |
+| 6 | `Data_Wind_Solar_Load_Capacity_Adjusted_MW_spring_day` | Sep–Nov | 1,162 | 2018-03-01 05:00:00 | 2018-05-31 16:00:00 |
+| 7 | `Data_Wind_Solar_Load_Capacity_Adjusted_MW_spring_night` | Sep–Nov | 1,046 | 2018-03-01 00:00:00 | 2018-05-31 23:00:00 |
 
-| File | Season | Time | Typical rows |
-|------|--------|------|-------------|
-| `solar_Wind_Load_winter_day_1_year.csv` | Dec–Feb | 05:00–17:59 | ~1,170 |
-| `solar_Wind_Load_winter_night_1_year.csv` | Dec–Feb | 18:00–04:59 | ~990 |
-| `solar_Wind_Load_spring_day_1_year.csv` | Mar–May | 05:00–17:59 | ~1,196 |
-| `solar_Wind_Load_spring_night_1_year.csv` | Mar–May | 18:00–04:59 | ~1,012 |
-| `solar_Wind_Load_summer_day_1_year.csv` | Jun–Aug | 05:00–17:59 | ~1,196 |
-| `solar_Wind_Load_summer_night_1_year.csv` | Jun–Aug | 18:00–04:59 | ~1,012 |
-| `solar_Wind_Load_fall_day_1_year.csv` | Sep–Nov | 05:00–17:59 | ~1,183 |
-| `solar_Wind_Load_fall_night_1_year.csv` | Sep–Nov | 18:00–04:59 | ~1,001 |
 
 **All 8 files have the same columns** as the master dataset. These are the inputs for Part 2 (Gaussian Copula fitting).
 
