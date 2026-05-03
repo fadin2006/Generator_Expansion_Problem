@@ -19,7 +19,7 @@ The dataset is prepared for forecasting, data mining, AI modelling, mathematical
 | `Data_Wind_Solar_Load_Capacity_Adjusted_MW_spring.csv` | Spring subset: March, April, May |
 | `Data_Wind_Solar_Load_Capacity_Adjusted_MW_summer.csv` | Summer subset: June, July, August |
 | `Data_Wind_Solar_Load_Capacity_Adjusted_MW_fall.csv` | Fall subset: September, October, November |
-| `season_numeric_stats.csv` | Min, mean, and max statistics for each numeric variable by season |
+| `season_numeric_season_stats.csv` | Min, mean, and max statistics for each numeric variable by season |
 ---
 
 ## Season Definition
